@@ -1,0 +1,16 @@
+#
+# The two letter codes are defined by ISO 639-1
+# http://en.wikipedia.org/wiki/List_of_ISO_639_codes
+
+IRSERVER
+	DA	IrServer
+	DE	IrServer
+	EN	IrServer
+	ES	IrServer
+	FI	IrServer
+	FR	IrServer
+	IT	IrServer
+	NL	IrServer
+	NO	IrServer
+	SV	IrServer
+

@@ -1,0 +1,82 @@
+<html>
+<!--
+=head1 NAME
+
+infrared-remote-example.html - Simple examples of using IrServer from a web browser
+
+=head1 AUTHOR
+
+Greg J. Badros - badros@cs.washington.edu
+
+=head1 LICENSE
+
+This file is part of IrServer
+
+IrServer is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+IrServer is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with IrServer.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+
+<script type="text/javascript" language="javascript">
+
+var baseurl = "http://192.168.0.252:8174/";
+
+function sendMenu() {
+	/* just for testing the simplest case */
+	var url = baseurl + "testir+0x00009c40+0x80000960+0x0000024c+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x800004b0+0x00000258+0x800004b0+0x00000258+0x800004b0+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x0000af51+0x80000960+0x0000024c+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x800004b0+0x00000258+0x800004b0+0x00000258+0x800004b0+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x0000af51";
+	var img = new Image();
+	img.src = url + "#" + Math.random();
+}
+
+/* Send a command to the device, defeat HTTP caching */
+function cmd(s) {
+	var img = new Image();
+	img.src = baseurl + s + "#" + Math.random();
+}
+
+/* Send the command entered into the text box */
+function docmd() {
+	cmd(document.input.cmd.value);
+}
+
+</script>
+
+<!-- pretty simple case - the function just does one thing -->
+<a href="#" onClick="sendmenu();">menu</a> &nbsp;
+<!-- this is an even simpler case for testing -->
+<a href="http://192.168.0.252:8174/testir+0x00009c40+0x80000960+0x0000024c+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x800004b0+0x00000258+0x800004b0+0x00000258+0x800004b0+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x0000af51+0x80000960+0x0000024c+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x800004b0+0x00000258+0x800004b0+0x00000258+0x800004b0+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x80000258+0x00000258+0x0000af51">directlink:menu</a>
+<br>
+<br>
+
+
+<!--
+my $sony_code_power = "0xA90";
+my $sony_code_menu = "0x070";
+
+my $pioneeramp_code_mute = "0xA55A48B7";
+my $pioneeramp_code_power = "0xA55A38C7";
+-->
+
+<a href="#" onClick='cmd("devcmd sonytv 0xa90");'>TV Power</a> &nbsp;
+<a href="#" onClick='cmd("devcmd sonytv 0x070");'>TV Menu</a> &nbsp;
+<a href="#" onClick='cmd("devcmd pioneeramp 0xA55A38C7");'>Amp Power</a> &nbsp;
+<a href="#" onClick='cmd("devcmd pioneeramp 0xA55A48B7");'>Amp Mute</a>
+
+<br>
+<br>
+Command:
+<form name="input" action="" method="get">
+  <input type="text" size="150" name="cmd">
+  <input type="submit" value="Submit" onclick="docmd()">
+</form>
+</html>
