@@ -1,0 +1,3 @@
+**IrServerSB** is a Lua-based simple HTTP-like server that runs on the Jive framework on a Logitech [SqueezeBox](http://www.slimdevices.com/pi_duet.html) Duet Controller.  It listens to commands on port 8174 and runs the experimental "/bin/testir" program with the right arguments to send Infrared signals to your audio/visual equipment using the Duet Controller device's IR transmitter.  Recommended use is in conjunction with iPeng for the iPod-touch/iPhone.  Simple conversion of Linux Infrared Remote Control (LIRC) configuration files to a rudimentary static HTML interface is also included.
+
+Author: _Greg J. Badros_ ([GregBadros](http://www.badros.com/greg))
